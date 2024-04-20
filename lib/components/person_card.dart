@@ -1,12 +1,15 @@
+import 'package:choors_frontend/screens/person_screen.dart';
 import 'package:flutter/material.dart';
 
 class PersonCard extends StatelessWidget {
+  final String id;
   final String pictureUrl;
   final String personNameText;
   final String pointsText;
   final String penaltyText;
 
   const PersonCard({
+    required this.id,
     required this.pictureUrl,
     required this.personNameText,
     required this.pointsText,
@@ -14,9 +17,20 @@ class PersonCard extends StatelessWidget {
     super.key,
   });
 
+  void _onTap(context) {
+    Navigator.of(context).pushNamed(
+      '/person',
+      arguments: PersonScreenArgs(
+        personId: id,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: () => _onTap(context),
+      child: Card(
         color: Theme.of(context).colorScheme.primaryContainer,
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -52,6 +66,8 @@ class PersonCard extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

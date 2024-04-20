@@ -1,5 +1,6 @@
 import 'package:choors_frontend/config/config.dart';
 import 'package:choors_frontend/controllers/people_page_controller.dart';
+import 'package:choors_frontend/controllers/person_page_controller.dart';
 import 'package:choors_frontend/controllers/schedule_page_controller.dart';
 import 'package:choors_frontend/controllers/scheduled_task_page_controller.dart';
 import 'package:choors_frontend/controllers/task_page_controller.dart';
@@ -33,6 +34,7 @@ class Controllers {
   late PeoplePageController peoplePageController;
   late ScheduledTaskPageController scheduledTaskPageController;
   late TaskPageController taskPageController;
+  late PersonPageController personPageController;
 
   Controllers(Services services) {
     schedulePageController = SchedulePageController(
@@ -49,6 +51,9 @@ class Controllers {
     );
     taskPageController = TaskPageController(
       taskService: services.taskService,
+    );
+    personPageController = PersonPageController(
+      peopleService: services.peopleService,
     );
   }
 }

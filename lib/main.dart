@@ -1,5 +1,6 @@
 import 'package:choors_frontend/bootstrap.dart';
 import 'package:choors_frontend/screens/main_screen.dart';
+import 'package:choors_frontend/screens/person_screen.dart';
 import 'package:choors_frontend/screens/scheduled_task_screen.dart';
 import 'package:choors_frontend/screens/task_screen.dart';
 import 'package:choors_frontend/theme/theme.dart';
@@ -35,6 +36,10 @@ class MyApp extends StatelessWidget {
             TaskScreenArgs args = settings.arguments as TaskScreenArgs;
             return TaskScreen(args: args);
           },
+          '/person': (context) {
+            PersonScreenArgs args = settings.arguments as PersonScreenArgs;
+            return PersonScreen(args: args);
+          }
         };
 
         return MaterialPageRoute(

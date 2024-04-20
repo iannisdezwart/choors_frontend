@@ -59,6 +59,7 @@ class _PeoplePageState extends State<PeoplePage> {
                         vertical: 4,
                       ),
                       child: PersonCard(
+                        id: person.id,
                         personNameText: person.name,
                         penaltyText: person.penalty.toString(),
                         pictureUrl: person.pictureUrl,

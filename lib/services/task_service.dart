@@ -31,40 +31,40 @@ class TaskService extends Service {
 
     return TaskList(tasks: [
       TaskListEntry(
-        id: "id-1",
-        name: "Task 1",
-        description: "Description 1",
+        id: 'id-1',
+        name: 'Task 1',
+        description: 'Description 1',
         freqBase: DateTime.now(),
         freqOffset: 0,
         timeLimit: 0,
         scheduleOffset: 0,
         points: 0,
         penalty: 0,
-        responsibleTaskGroup: "task-group",
+        responsibleTaskGroup: 'task-group',
       ),
       TaskListEntry(
-        id: "id-2",
-        name: "Task 2",
-        description: "Description 2",
+        id: 'id-2',
+        name: 'Task 2',
+        description: 'Description 2',
         freqBase: DateTime.now(),
         freqOffset: 0,
         timeLimit: 0,
         scheduleOffset: 0,
         points: 0,
         penalty: 0,
-        responsibleTaskGroup: "task-group",
+        responsibleTaskGroup: 'task-group',
       ),
       TaskListEntry(
-        id: "id-3",
-        name: "Task 3",
-        description: "Description 3",
+        id: 'id-3',
+        name: 'Task 3',
+        description: 'Description 3',
         freqBase: DateTime.now(),
         freqOffset: 0,
         timeLimit: 0,
         scheduleOffset: 0,
         points: 0,
         penalty: 0,
-        responsibleTaskGroup: "task-group",
+        responsibleTaskGroup: 'task-group',
       ),
     ]);
   }
@@ -75,16 +75,16 @@ class TaskService extends Service {
     // TODO MOCK
 
     return DetailedTask(
-      id: "id",
-      name: "Task",
-      description: "Description",
+      id: 'id',
+      name: 'Task',
+      description: 'Description',
       freqBase: DateTime.now(),
       freqOffset: 0,
       timeLimit: 0,
       scheduleOffset: 0,
       points: 0,
       penalty: 0,
-      responsibleTaskGroup: "task-group",
+      responsibleTaskGroup: 'task-group',
     );
   }
 }

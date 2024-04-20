@@ -44,19 +44,19 @@ class _TasksPageState extends State<TasksPage> {
   String _pointsText({
     required TaskListEntry task,
   }) {
-    return "${task.points} pts";
+    return '${task.points} pts';
   }
 
   String _frequencyText({
     required TaskListEntry task,
   }) {
-    return "base: ${DateFormat.yMMMd().format(task.freqBase)}, offset: ${task.freqOffset}";
+    return 'base: ${DateFormat.yMMMd().format(task.freqBase)}, offset: ${task.freqOffset}';
   }
 
   String _timeText({
     required TaskListEntry task,
   }) {
-    return "time: ${task.timeLimit}";
+    return 'time: ${task.timeLimit}';
   }
 
   @override
