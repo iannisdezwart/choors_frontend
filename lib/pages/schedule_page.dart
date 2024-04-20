@@ -54,15 +54,16 @@ class _SchedulePageState extends State<SchedulePage> {
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                   ...schedule.schedule.map(
-                    (task) => Padding(
+                    (scheduledTask) => Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 4,
                       ),
                       child: ScheduledTaskCard(
-                        taskName: task.name,
-                        dueDateText: task.dueDate.toString(),
-                        pointsText: task.points.toString(),
+                        id: scheduledTask.id,
+                        taskName: scheduledTask.name,
+                        dueDateText: scheduledTask.dueDate.toString(),
+                        pointsText: scheduledTask.points.toString(),
                         statusText: 'UNFINISHED',
                       ),
                     ),

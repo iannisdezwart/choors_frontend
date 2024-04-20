@@ -9,7 +9,7 @@ class PeoplePageController {
   });
 
   PersonList? _personList;
-  get peopleList => _personList;
+  PersonList? get peopleList => _personList;
 
   Future<void> init({
     required String houseId,

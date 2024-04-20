@@ -1,5 +1,7 @@
 import 'package:choors_frontend/bootstrap.dart';
-import 'package:choors_frontend/routing/routes.dart';
+import 'package:choors_frontend/screens/main_screen.dart';
+import 'package:choors_frontend/screens/scheduled_task_screen.dart';
+import 'package:choors_frontend/screens/task_screen.dart';
 import 'package:choors_frontend/theme/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: lightTheme,
-      routes: routes,
+      onGenerateRoute: (settings) {
+        Map<String, WidgetBuilder> routes = {
+          '/': (context) => const MainScreen(),
+          '/scheduled-task': (context) {
+            ScheduledTaskScreenArgs args =
+                settings.arguments as ScheduledTaskScreenArgs;
+            return ScheduledTaskScreen(args: args);
+          },
+          '/task': (context) {
+            TaskScreenArgs args = settings.arguments as TaskScreenArgs;
+            return TaskScreen(args: args);
+          },
+        };
+
+        return MaterialPageRoute(
+          builder: routes[settings.name]!,
+        );
+      },
     );
   }
 }

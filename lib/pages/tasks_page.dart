@@ -84,6 +84,7 @@ class _TasksPageState extends State<TasksPage> {
                         vertical: 4,
                       ),
                       child: TaskCard(
+                        id: task.id,
                         taskName: task.name,
                         responsibleTaskGroupText: _responsibleTaskGroupText(
                           responsibleTaskGroup: task.responsibleTaskGroup,

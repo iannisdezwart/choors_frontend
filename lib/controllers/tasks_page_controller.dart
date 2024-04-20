@@ -9,7 +9,7 @@ class TasksPageController {
   });
 
   TaskList? _taskList;
-  get taskList => _taskList;
+  TaskList? get taskList => _taskList;
 
   Future<void> init({
     required String houseId,

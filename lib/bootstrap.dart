@@ -1,6 +1,8 @@
 import 'package:choors_frontend/config/config.dart';
 import 'package:choors_frontend/controllers/people_page_controller.dart';
 import 'package:choors_frontend/controllers/schedule_page_controller.dart';
+import 'package:choors_frontend/controllers/scheduled_task_page_controller.dart';
+import 'package:choors_frontend/controllers/task_page_controller.dart';
 import 'package:choors_frontend/controllers/tasks_page_controller.dart';
 import 'package:choors_frontend/services/people_service.dart';
 import 'package:choors_frontend/services/schedule_service.dart';
@@ -13,9 +15,15 @@ class Services {
   late PeopleService peopleService;
 
   Services(ApiTransport apiTransport) {
-    scheduleService = ScheduleService(apiTransport: apiTransport);
-    taskService = TaskService(apiTransport: apiTransport);
-    peopleService = PeopleService(apiTransport: apiTransport);
+    scheduleService = ScheduleService(
+      apiTransport: apiTransport,
+    );
+    taskService = TaskService(
+      apiTransport: apiTransport,
+    );
+    peopleService = PeopleService(
+      apiTransport: apiTransport,
+    );
   }
 }
 
@@ -23,14 +31,25 @@ class Controllers {
   late SchedulePageController schedulePageController;
   late TasksPageController tasksPageController;
   late PeoplePageController peoplePageController;
+  late ScheduledTaskPageController scheduledTaskPageController;
+  late TaskPageController taskPageController;
 
   Controllers(Services services) {
-    schedulePageController =
-        SchedulePageController(scheduleService: services.scheduleService);
-    tasksPageController =
-        TasksPageController(taskService: services.taskService);
-    peoplePageController =
-        PeoplePageController(peopleService: services.peopleService);
+    schedulePageController = SchedulePageController(
+      scheduleService: services.scheduleService,
+    );
+    tasksPageController = TasksPageController(
+      taskService: services.taskService,
+    );
+    peoplePageController = PeoplePageController(
+      peopleService: services.peopleService,
+    );
+    scheduledTaskPageController = ScheduledTaskPageController(
+      scheduleService: services.scheduleService,
+    );
+    taskPageController = TaskPageController(
+      taskService: services.taskService,
+    );
   }
 }
 
@@ -39,9 +58,15 @@ class Bootstrap {
 
   Bootstrap._() {
     config = Config();
-    apiTransport = ApiTransport(baseUrl: config.apiBaseUrl);
-    services = Services(apiTransport);
-    controllers = Controllers(services);
+    apiTransport = ApiTransport(
+      baseUrl: config.apiBaseUrl,
+    );
+    services = Services(
+      apiTransport,
+    );
+    controllers = Controllers(
+      services,
+    );
   }
 
   factory Bootstrap() {

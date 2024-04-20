@@ -9,7 +9,7 @@ class SchedulePageController {
   });
 
   Schedule? _schedule;
-  get schedule => _schedule;
+  Schedule? get schedule => _schedule;
 
   Future<void> init({
     required String houseId,

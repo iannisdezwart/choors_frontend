@@ -1,3 +1,4 @@
+import 'package:choors_frontend/entities/detailed_scheduled_task.dart';
 import 'package:choors_frontend/entities/schedule.dart';
 import 'package:choors_frontend/services/service.dart';
 
@@ -43,5 +44,21 @@ class ScheduleService extends Service {
         isPenalised: false,
       ),
     ]);
+  }
+
+  Future<DetailedScheduledTask> fetchScheduledTask({
+    required String houseId,
+    required String scheduledTaskId,
+  }) async {
+    // TODO MOCK
+
+    return DetailedScheduledTask(
+      id: '1',
+      name: 'Task 1',
+      dueDate: DateTime.now(),
+      points: 10,
+      description: 'Description 1',
+      responsiblePerson: 'Person 1',
+    );
   }
 }

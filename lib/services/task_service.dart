@@ -1,3 +1,4 @@
+import 'package:choors_frontend/entities/detailed_task.dart';
 import 'package:choors_frontend/entities/task_list.dart';
 import 'package:choors_frontend/services/service.dart';
 
@@ -66,5 +67,24 @@ class TaskService extends Service {
         responsibleTaskGroup: "task-group",
       ),
     ]);
+  }
+
+  Future<DetailedTask> fetchDetailedTask({
+    required String taskId,
+  }) async {
+    // TODO MOCK
+
+    return DetailedTask(
+      id: "id",
+      name: "Task",
+      description: "Description",
+      freqBase: DateTime.now(),
+      freqOffset: 0,
+      timeLimit: 0,
+      scheduleOffset: 0,
+      points: 0,
+      penalty: 0,
+      responsibleTaskGroup: "task-group",
+    );
   }
 }

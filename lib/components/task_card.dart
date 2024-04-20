@@ -1,6 +1,8 @@
+import 'package:choors_frontend/screens/scheduled_task_screen.dart';
 import 'package:flutter/material.dart';
 
 class TaskCard extends StatelessWidget {
+  final String id;
   final String taskName;
   final String responsibleTaskGroupText;
   final String pointsText;
@@ -9,6 +11,7 @@ class TaskCard extends StatelessWidget {
 
   const TaskCard({
     super.key,
+    required this.id,
     required this.taskName,
     required this.responsibleTaskGroupText,
     required this.pointsText,
@@ -16,9 +19,20 @@ class TaskCard extends StatelessWidget {
     required this.timeText,
   });
 
+    void _onTap(context) {
+    Navigator.of(context).pushNamed(
+      '/scheduled-task',
+      arguments: ScheduledTaskScreenArgs(
+        scheduledTaskId: id,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: () => _onTap(context),
+      child: Card(
         color: Theme.of(context).colorScheme.primaryContainer,
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -57,6 +71,8 @@ class TaskCard extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
